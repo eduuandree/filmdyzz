@@ -38,6 +38,36 @@ body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--body);fo
 img,video{display:block;max-width:100%}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+::selection{background:var(--lime);color:var(--ink)}
+
+.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--lime);transform:scaleX(0);transform-origin:left;z-index:30}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.is-in{opacity:1;transform:none}
+.chapter .wrap>*.reveal:nth-child(2){transition-delay:.1s}
+.chapter .wrap>*.reveal:nth-child(3){transition-delay:.2s}
+.feature .text>div.reveal:nth-child(2){transition-delay:.12s}
+.grid4 .card.reveal:nth-child(2),.grid3 .card.reveal:nth-child(2){transition-delay:.08s}
+.grid4 .card.reveal:nth-child(3),.grid3 .card.reveal:nth-child(3){transition-delay:.16s}
+.grid4 .card.reveal:nth-child(4){transition-delay:.24s}
+.services li.reveal:nth-child(2){transition-delay:.06s}
+.services li.reveal:nth-child(3){transition-delay:.12s}
+.services li.reveal:nth-child(4){transition-delay:.18s}
+.services li.reveal:nth-child(5){transition-delay:.24s}
+
+.rec{display:inline-flex;align-items:center;gap:8px}
+.rec::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(198,255,51,.5)}50%{opacity:.35;box-shadow:0 0 0 5px rgba(198,255,51,0)}}
+
+@keyframes ambientzoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero .media video,.chapter .bg video{animation:ambientzoom 24s ease-in-out infinite alternate}
+
+.marquee{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee .track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 .wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
 .mono{font-family:var(--mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
 .eyebrow{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:0}
@@ -51,8 +81,8 @@ p{margin:0}
 .nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
 .nav ul a{text-decoration:none;color:var(--mute);font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
 .nav ul a:hover{color:var(--bone)}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);text-decoration:none;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:40px;border:0;cursor:pointer;white-space:nowrap}
-.btn:hover{background:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);text-decoration:none;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:40px;border:0;cursor:pointer;white-space:nowrap;transition:background .3s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+.btn:hover{background:var(--bone);transform:translateY(-2px)}
 @media (max-width:860px){.nav ul{display:none}}
 
 /* hero */
@@ -111,10 +141,11 @@ p{margin:0}
 @media (max-width:1000px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3 .card:last-child{grid-column:span 2}.grid3 .card:last-child .frame{aspect-ratio:4/3}}
 .card{display:flex;flex-direction:column;gap:14px;min-width:0}
-.frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-3)}
+.frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-3);transition:box-shadow .4s ease}
 .frame.tall{aspect-ratio:9/16}
 .frame video,.frame img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .card:hover .frame video,.card:hover .frame img{transform:scale(1.03)}
+.card:hover .frame{box-shadow:0 0 0 1px rgba(198,255,51,.35),0 18px 40px -20px rgba(198,255,51,.3)}
 .tag{position:absolute;left:12px;top:12px;background:rgba(12,12,13,.72);color:var(--lime);font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px}
 .cap{display:flex;flex-direction:column;gap:2px;font-family:var(--mono);font-size:14px;line-height:1.45}
 .cap strong{font-weight:400;color:var(--bone)}
@@ -149,8 +180,9 @@ p{margin:0}
 
 /* clientes */
 .wall{border-top:1px solid var(--line)}
-.wall p.names{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,5.4vw,84px);line-height:1.12;margin-top:28px}
+.wall p.names{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,5.4vw,84px);line-height:1.12;white-space:nowrap;margin:0;padding-right:2ch}
 .wall .names span{color:var(--lime)}
+.wall .marquee{margin-top:28px}
 
 /* servicios */
 .services{background:var(--lime);color:var(--ink)}
@@ -186,11 +218,20 @@ p{margin:0}
 .copy-btn:hover{color:var(--bone);border-color:var(--mute)}
 footer{border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:28px;color:var(--dim)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.frame video,.frame img{transition:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .frame video,.frame img{transition:none}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .hero .media video,.chapter .bg video{animation:none!important}
+  .marquee .track{animation:none!important}
+  .marquee .names:nth-child(2){display:none}
+  .rec::before{animation:none!important}
+}
 </style>
 </head>
 <body>
-
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
 
 <nav class="nav" aria-label="Principal">
   <div class="wrap">
@@ -215,7 +256,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:2
     <p class="lede">Dirección, video, fotografía y backstage.</p>
     <div class="meta">
       <a class="btn" href="#contacto">Portafolio + servicios</a>
-      <a class="mono" href="https://www.instagram.com/_filmdyzz/" target="_blank" rel="noopener">@_filmdyzz ↗</a>
+      <a class="mono rec" href="https://www.instagram.com/_filmdyzz/" target="_blank" rel="noopener">@_filmdyzz ↗</a>
     </div>
   </div>
 </header>
@@ -379,7 +420,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:2
 <section class="block wall" aria-labelledby="h-wall">
   <div class="wrap">
     <p class="eyebrow" id="h-wall">Artistas, escenarios + marcas</p>
-    <p class="names">50mm&nbsp;Producciones&nbsp;<span>/</span> Red&nbsp;Bull&nbsp;Chile&nbsp;<span>/</span> Movistar&nbsp;Arena&nbsp;<span>/</span> Outworld&nbsp;<span>/</span> Lenny&nbsp;Tavárez&nbsp;<span>/</span> Justin&nbsp;Quiles&nbsp;<span>/</span> Ivy&nbsp;Queen&nbsp;<span>/</span> Rauw&nbsp;Alejandro&nbsp;<span>/</span> Chencho&nbsp;Corleone&nbsp;<span>/</span> L-Gante&nbsp;<span>/</span> Mochakk&nbsp;<span>/</span> Klangkuenstler&nbsp;<span>/</span> Serendipas&nbsp;<span>/</span> The&nbsp;Premium&nbsp;Room&nbsp;<span>/</span> Misa&nbsp;<span>/</span> Club&nbsp;Room&nbsp;<span>/</span> Simple&nbsp;Mezcla</p>
+  </div>
+  <div class="marquee reveal">
+    <div class="track">
+      <p class="names">50mm&nbsp;Producciones&nbsp;<span>/</span> Red&nbsp;Bull&nbsp;Chile&nbsp;<span>/</span> Movistar&nbsp;Arena&nbsp;<span>/</span> Outworld&nbsp;<span>/</span> Lenny&nbsp;Tavárez&nbsp;<span>/</span> Justin&nbsp;Quiles&nbsp;<span>/</span> Ivy&nbsp;Queen&nbsp;<span>/</span> Rauw&nbsp;Alejandro&nbsp;<span>/</span> Chencho&nbsp;Corleone&nbsp;<span>/</span> L-Gante&nbsp;<span>/</span> Mochakk&nbsp;<span>/</span> Klangkuenstler&nbsp;<span>/</span> Serendipas&nbsp;<span>/</span> The&nbsp;Premium&nbsp;Room&nbsp;<span>/</span> Misa&nbsp;<span>/</span> Club&nbsp;Room&nbsp;<span>/</span> Simple&nbsp;Mezcla&nbsp;<span>/</span></p>
+      <p class="names" aria-hidden="true">50mm&nbsp;Producciones&nbsp;<span>/</span> Red&nbsp;Bull&nbsp;Chile&nbsp;<span>/</span> Movistar&nbsp;Arena&nbsp;<span>/</span> Outworld&nbsp;<span>/</span> Lenny&nbsp;Tavárez&nbsp;<span>/</span> Justin&nbsp;Quiles&nbsp;<span>/</span> Ivy&nbsp;Queen&nbsp;<span>/</span> Rauw&nbsp;Alejandro&nbsp;<span>/</span> Chencho&nbsp;Corleone&nbsp;<span>/</span> L-Gante&nbsp;<span>/</span> Mochakk&nbsp;<span>/</span> Klangkuenstler&nbsp;<span>/</span> Serendipas&nbsp;<span>/</span> The&nbsp;Premium&nbsp;Room&nbsp;<span>/</span> Misa&nbsp;<span>/</span> Club&nbsp;Room&nbsp;<span>/</span> Simple&nbsp;Mezcla&nbsp;<span>/</span></p>
+    </div>
   </div>
 </section>
 
@@ -450,6 +496,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:2
     }, { rootMargin: '200px 0px' });
     vids.forEach(function(v){ v.removeAttribute('autoplay'); io.observe(v); });
   }
+
+  var revealSelectors = '.card, .chapter .wrap > *, .block-head, .feature .text > div, .moda .intro > *, .foto .side > h3, .wall .wrap > *, .services h2, .services li, .quote .block-head, .quote .foot, .contact .wrap > *';
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSelectors));
+  revealEls.forEach(function(el){ el.classList.add('reveal'); });
+  revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add('is-in'); ro.unobserve(entry.target); }
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ ro.observe(el); });
+  }
+
+  var progress = document.querySelector('.progress');
+  if (progress) {
+    var raf = null;
+    var updateProgress = function(){
+      raf = null;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      progress.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+    };
+    window.addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(updateProgress); }, { passive: true });
+    updateProgress();
+  }
+
   var btn = document.getElementById('copy-phone');
   btn.addEventListener('click', function(){
     var t = '+56950193962';
