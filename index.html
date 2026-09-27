@@ -204,6 +204,19 @@ p{margin:0}
 .quote td:last-child{text-align:right}
 .quote td a{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);text-underline-offset:3px;white-space:nowrap}
 .quote .foot{margin-top:18px;color:var(--mute)}
+@media (max-width:700px){
+  .quote .table-wrap{overflow-x:visible;border:0}
+  .quote table{min-width:0;width:100%;display:block}
+  .quote thead{display:none}
+  .quote tbody{display:block}
+  .quote tr{display:block;padding-block:20px;border-bottom:1px solid var(--line)}
+  .quote tr:first-child{border-top:1px solid var(--line)}
+  .quote td{display:block;padding:0;border:0}
+  .quote td:first-child{font-size:19px;margin-bottom:8px;white-space:normal}
+  .quote td:nth-child(2){color:var(--mute);margin-bottom:16px}
+  .quote td:last-child{text-align:left}
+  .quote td a{display:inline-flex;align-items:center;background:var(--ink-3);padding:9px 16px;border-radius:20px}
+}
 
 /* contacto */
 .contact{border-top:1px solid var(--line)}
