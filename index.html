@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dyzz, director y creador audiovisual en Santiago de Chile. Backstage, videoclips, aftermovies, contenido para marcas y fotografía.">
+<meta property="og:title" content="By Dyzz">
+<meta property="og:description" content="Dirección, video, fotografía y backstage.">
+<meta property="og:image" content="/media/lenny.jpg">
+<meta name="theme-color" content="#0C0C0D">
+<link rel="icon" href="/media/logo.png">
+<title>By Dyzz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --ink:#0C0C0D;
+  --ink-2:#141416;
+  --ink-3:#1C1C1F;
+  --bone:#EFEDE6;
+  --paper:#ECEAE2;
+  --mute:#9C9A94;
+  --dim:#6E6C67;
+  --lime:#C6FF33;
+  --violet:#5B2BB5;
+  --line:rgba(239,237,230,.14);
+  --display:'Anton', Impact, 'Arial Narrow', sans-serif;
+  --body:'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --mono:'Space Mono', 'Courier New', monospace;
+  --gut:clamp(16px, 5vw, 96px);
+  --max:1600px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--body);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.mono{font-family:var(--mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance;letter-spacing:.005em}
+p{margin:0}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(12,12,13,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.nav img{height:30px;width:auto}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--mute);font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.nav ul a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);text-decoration:none;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:40px;border:0;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--bone)}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .media{position:absolute;inset:0 0 0 auto;width:min(58%,980px)}
+.hero .media video{width:100%;height:100%;object-fit:cover}
+.hero .media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(12,12,13,.55) 30%,rgba(12,12,13,0) 65%)}
+.hero .wrap{position:relative;display:flex;flex-direction:column;gap:32px;padding-block:clamp(72px,12vw,160px)}
+.hero .logo{width:min(720px,88%);height:auto}
+.hero .lede{font-size:clamp(22px,2.4vw,32px);line-height:1.3;max-width:18ch}
+.hero .meta{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;color:var(--mute)}
+@media (max-width:760px){
+  .hero .media{position:relative;width:100%;aspect-ratio:4/5;inset:auto}
+  .hero .media::after{background:linear-gradient(0deg,var(--ink) 0%,rgba(12,12,13,0) 45%)}
+  .hero .wrap{padding-block:0 56px;margin-top:-120px}
+}
+
+/* about */
+.about{background:var(--paper);color:#141414}
+.about .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);padding-block:clamp(72px,10vw,140px);align-items:center}
+.about h2{font-size:clamp(88px,13vw,200px);line-height:.9}
+.about .handle{display:inline-block;margin-top:18px;background:var(--lime);color:#141414;font-family:var(--mono);font-weight:700;font-size:15px;padding:6px 12px;text-decoration:none}
+.about .copy{display:flex;flex-direction:column;gap:16px;margin-top:40px;max-width:62ch;color:#3A3934}
+.about .copy p:first-child{color:#141414;font-size:21px}
+.about .close{margin-top:36px;font-family:var(--display);font-size:clamp(30px,3.4vw,48px);line-height:1.05;text-transform:uppercase}
+.about .close span{color:var(--violet)}
+.collage{position:relative;padding-bottom:22%}
+.collage .a{width:78%;aspect-ratio:7/8;object-fit:cover;border:2px solid #141414}
+.collage .b{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;border:2px solid #141414;transform:rotate(3deg);overflow:hidden;background:#141414}
+.collage .b video{width:100%;height:100%;object-fit:cover}
+.collage .tags{position:absolute;left:0;bottom:0;font-family:var(--mono);font-size:14px;line-height:1.6;letter-spacing:.06em}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr}}
+
+/* section chapter headers */
+.chapter{position:relative;overflow:hidden;border-top:1px solid var(--line)}
+.chapter .bg{position:absolute;inset:0 0 0 auto;width:55%}
+.chapter .bg video,.chapter .bg img{width:100%;height:100%;object-fit:cover}
+.chapter .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(12,12,13,0) 55%)}
+.chapter .wrap{position:relative;padding-block:clamp(80px,11vw,150px);display:flex;flex-direction:column;gap:24px}
+.chapter .num{font-family:var(--mono);font-weight:700;font-size:22px;color:var(--lime)}
+.chapter h2{font-size:clamp(96px,17vw,280px);line-height:.88}
+.chapter .sub{font-size:clamp(19px,1.8vw,24px);color:var(--mute);max-width:34ch}
+.chapter .sub b{color:var(--bone);font-weight:500}
+@media (max-width:760px){
+  .chapter .bg{width:100%;opacity:.45}
+  .chapter .bg::after{background:linear-gradient(90deg,var(--ink) 10%,rgba(12,12,13,.2) 100%)}
+}
+
+/* blocks */
+.block{padding-block:clamp(56px,7vw,104px)}
+.block-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 40px;margin-bottom:clamp(28px,3.5vw,48px)}
+.block-head h3{font-size:clamp(48px,7vw,112px)}
+.block-head p{color:var(--mute);max-width:44ch}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,28px)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)}
+@media (max-width:1000px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3 .card:last-child{grid-column:span 2}.grid3 .card:last-child .frame{aspect-ratio:4/3}}
+.card{display:flex;flex-direction:column;gap:14px;min-width:0}
+.frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-3)}
+.frame.tall{aspect-ratio:9/16}
+.frame video,.frame img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .frame video,.card:hover .frame img{transform:scale(1.03)}
+.tag{position:absolute;left:12px;top:12px;background:rgba(12,12,13,.72);color:var(--lime);font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px}
+.cap{display:flex;flex-direction:column;gap:2px;font-family:var(--mono);font-size:14px;line-height:1.45}
+.cap strong{font-weight:400;color:var(--bone)}
+.cap a{color:var(--mute);text-underline-offset:3px}
+.cap a:hover{color:var(--lime)}
+
+/* feature (tour) */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feature .frame{aspect-ratio:auto;min-height:560px}
+.feature .text{display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(40px,6vw,96px) var(--gut)}
+.feature h3{font-size:clamp(64px,8vw,140px)}
+.feature .text p{font-size:clamp(19px,1.8vw,24px);color:var(--mute);max-width:32ch}
+.feature .text p b{color:var(--bone);font-weight:500}
+@media (max-width:860px){.feature{grid-template-columns:1fr}.feature .frame{min-height:0;aspect-ratio:4/5}}
+
+/* moda */
+.moda{background:var(--ink-2)}
+.moda .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,8fr);gap:clamp(32px,5vw,72px);align-items:start}
+.moda h3{font-size:clamp(56px,6.6vw,112px);margin-top:20px}
+.moda .intro p{margin-top:28px;color:var(--mute);font-size:clamp(19px,1.7vw,23px);max-width:30ch}
+.moda .intro p b{color:var(--bone);font-weight:500}
+@media (max-width:900px){.moda .wrap{grid-template-columns:1fr}}
+
+/* foto */
+.foto .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,2.5vw,40px);align-items:stretch}
+.foto .lead .frame{aspect-ratio:auto;height:100%;min-height:520px}
+.foto .side{display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)}
+.foto .side h3{font-size:clamp(52px,6vw,96px)}
+.foto .pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,24px)}
+.foto .pair .frame{aspect-ratio:1}
+@media (max-width:860px){.foto .wrap{grid-template-columns:1fr}.foto .lead .frame{min-height:0;aspect-ratio:4/5}.foto .side{order:-1}}
+
+/* clientes */
+.wall{border-top:1px solid var(--line)}
+.wall p.names{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,5.4vw,84px);line-height:1.12;margin-top:28px}
+.wall .names span{color:var(--lime)}
+
+/* servicios */
+.services{background:var(--lime);color:var(--ink)}
+.services h2{font-size:clamp(64px,9vw,140px)}
+.services ol{list-style:none;margin:clamp(32px,4vw,56px) 0 0;padding:0;border-top:2px solid var(--ink)}
+.services li{display:grid;grid-template-columns:64px minmax(0,1.1fr) minmax(0,1fr);gap:16px 32px;align-items:baseline;padding-block:22px;border-bottom:2px solid var(--ink)}
+.services .n{font-family:var(--mono);font-weight:700;font-size:15px}
+.services h4{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(28px,3.4vw,52px);line-height:1.02}
+.services li p{color:#23241C;font-size:clamp(17px,1.5vw,21px)}
+@media (max-width:760px){.services li{grid-template-columns:40px minmax(0,1fr)}.services li p{grid-column:2}}
+
+/* cotizacion */
+.quote .table-wrap{position:relative;overflow-x:auto;border:1px solid var(--line)}
+.quote table{width:100%;min-width:640px;border-collapse:collapse;font-size:17px}
+.quote th,.quote td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+.quote th{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;background:var(--ink-3)}
+.quote tr:last-child td{border-bottom:0}
+.quote td:first-child{font-weight:500;white-space:nowrap}
+.quote td:last-child{text-align:right}
+.quote td a{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);text-underline-offset:3px;white-space:nowrap}
+.quote .foot{margin-top:18px;color:var(--mute)}
+
+/* contacto */
+.contact{border-top:1px solid var(--line)}
+.contact .wrap{padding-block:clamp(88px,12vw,180px);display:flex;flex-direction:column;gap:40px}
+.contact .logo{width:min(320px,70%);height:auto}
+.contact h2{font-size:clamp(56px,10vw,160px);line-height:.95}
+.contact h2 span{color:var(--lime)}
+.contact .rows{display:flex;flex-wrap:wrap;gap:16px 48px;align-items:center;font-family:var(--mono);font-size:18px}
+.contact .rows .k{color:var(--mute);margin-right:10px}
+.contact .rows a{text-underline-offset:4px}
+.copy-btn{background:transparent;color:var(--mute);border:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:20px;cursor:pointer;margin-left:10px}
+.copy-btn:hover{color:var(--bone);border-color:var(--mute)}
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:28px;color:var(--dim)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.frame video,.frame img{transition:none}}
+</style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a href="#top" aria-label="By Dyzz, inicio"><img src="media/logo.png" alt="By Dyzz"></a>
+    <ul>
+      <li><a href="#backstage">Backstage</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#foto">Foto</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+    </ul>
+    <a class="btn" href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="media">
+    <video src="media/clip-05.mp4" poster="media/lenny.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Lenny Tavárez en escenario bajo confeti"></video>
+  </div>
+  <div class="wrap">
+    <p class="mono" style="color:var(--mute)">Portafolio 2026 / Santiago, Chile</p>
+    <img class="logo" src="media/logo.png" alt="By Dyzz" width="1820" height="722">
+    <p class="lede">Dirección, video, fotografía y backstage.</p>
+    <div class="meta">
+      <a class="btn" href="#contacto">Portafolio + servicios</a>
+      <a class="mono" href="https://www.instagram.com/_filmdyzz/" target="_blank" rel="noopener">@_filmdyzz ↗</a>
+    </div>
+  </div>
+</header>
+
+<section class="about" aria-labelledby="quien">
+  <div class="wrap">
+    <div>
+      <h2 id="quien">Dyzz</h2>
+      <a class="handle" href="https://www.instagram.com/_filmdyzz/" target="_blank" rel="noopener">@_filmdyzz</a>
+      <div class="copy">
+        <p><b>Soy Dyzz, director y creador audiovisual.</b> Creo piezas que se ven bien, pero sobre todo, que generan una sensación.</p>
+        <p>Trabajo entre la dirección, la producción y el contenido, mezclando música, ritmo, color y narrativa para construir imágenes con identidad.</p>
+        <p>He trabajado con marcas, artistas, eventos y proyectos creativos, involucrándome en todo el proceso: desde la idea y el concepto hasta la dirección, grabación y edición.</p>
+        <p>Me gusta entender qué quieres transmitir, encontrar la mejor forma de llevarlo a imagen y convertirlo en algo que la gente quiera mirar.</p>
+      </div>
+      <p class="close">Filmdyzz es más que filmar.<br><span>Es darle forma visual a una idea.</span></p>
+    </div>
+    <div class="collage">
+      <img class="a" src="media/studio2.jpg" alt="Retrato de estudio con luz roja" loading="lazy">
+      <div class="b"><video src="media/clip-04.mp4" poster="media/bts-gear.jpg" autoplay muted loop playsinline preload="none" aria-label="Detrás de cámara de un fashion film"></video></div>
+      <p class="tags">Video<br>Foto<br>Backstage<br>Edición</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="backstage" aria-labelledby="h-bs">
+  <div class="bg"><video src="media/clip-01.mp4" poster="media/bts-monitor.jpg" autoplay muted loop playsinline preload="none" aria-label="Monitor de cámara frente a un escenario con láseres"></video></div>
+  <div class="wrap">
+    <span class="num">/01</span>
+    <h2 id="h-bs">Back<br>stage</h2>
+    <p class="sub">Cámara y CCTV en vivo.<br><b>Dentro del show, cerca de todo.</b></p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="h-dc">
+  <div class="wrap">
+    <div class="block-head"><h3 id="h-dc">Detrás de cámara</h3></div>
+    <div class="grid4">
+      <article class="card">
+        <div class="frame"><video src="media/clip-01.mp4" poster="media/bts-monitor.jpg" autoplay muted loop playsinline preload="none" aria-label="Monitor de cámara con el show en pantalla"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>CCTV — Rauw ft. Ivy Queen</strong><a href="https://www.instagram.com/reel/DQ0bwerDdg4/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame"><video src="media/clip-02.mp4" poster="media/bts-stage.jpg" autoplay muted loop playsinline preload="none" aria-label="Escenario visto desde el foso con steadicam"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Steadicam — 50mm</strong><a href="https://www.instagram.com/reel/Darw8vwgmNb/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame"><video src="media/clip-03.mp4" poster="media/bts-cam.jpg" autoplay muted loop playsinline preload="none" aria-label="Bailarinas en escenario junto a una cámara"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Circuito cerrado</strong><a href="https://www.instagram.com/reel/DLdx3-Zu3hb/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame"><video src="media/clip-06.mp4" poster="media/arena.jpg" autoplay muted loop playsinline preload="none" aria-label="Show en el Movistar Arena"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Movistar Arena</strong><a href="https://www.instagram.com/reel/DP5B9GfjAur/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="feature" aria-labelledby="h-tour">
+  <div class="frame"><video src="media/clip-05.mp4" poster="media/lenny.jpg" autoplay muted loop playsinline preload="none" aria-label="Lenny Tavárez en escenario bajo confeti"></video></div>
+  <div class="text">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p class="eyebrow">En gira</p>
+      <h3 id="h-tour">Superarte<br>World Tour</h3>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <p>Lenny Tavárez + Justin Quiles.<br>En cámara junto a 50mm Producciones, <b>desde el borde del escenario.</b></p>
+      <div class="cap"><a href="https://www.instagram.com/reel/DarvzP0Aa0-/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="video" aria-labelledby="h-vid">
+  <div class="bg"><video src="media/clip-09.mp4" poster="media/outworld.jpg" autoplay muted loop playsinline preload="none" aria-label="Toma 360 del público en Outworld"></video></div>
+  <div class="wrap">
+    <span class="num">/02</span>
+    <h2 id="h-vid">Video</h2>
+    <p class="sub">Videoclips, aftermovies y piezas de marca.<br><b>Una misma mirada, de la idea al corte final.</b></p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="h-ve">
+  <div class="wrap">
+    <div class="block-head"><h3 id="h-ve">Videoclips + eventos</h3></div>
+    <div class="grid4">
+      <article class="card">
+        <div class="frame"><video src="media/clip-07.mp4" poster="media/redbull.jpg" autoplay muted loop playsinline preload="none" aria-label="Pieza para Red Bull Chile"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Red Bull Chile</strong><a href="https://www.instagram.com/reel/DBCx4Vzudl-/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame"><video src="media/clip-08.mp4" poster="media/lgante.jpg" autoplay muted loop playsinline preload="none" aria-label="Montaje para L-Gante"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>L-Gante</strong><a href="https://www.instagram.com/reel/DWzPLU0Ef-8/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame"><video src="media/clip-09.mp4" poster="media/outworld.jpg" autoplay muted loop playsinline preload="none" aria-label="Aftermovie de Outworld 2026"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Outworld 2026</strong><a href="https://www.instagram.com/reel/Dc-MHA7R1vD/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame"><video src="media/clip-10.mp4" poster="media/ritoque.jpg" autoplay muted loop playsinline preload="none" aria-label="Mochakk en Ritoque"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Mochakk — Ritoque</strong><a href="https://www.instagram.com/reel/DF84lYHuKcG/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block moda" aria-labelledby="h-moda">
+  <div class="wrap">
+    <div class="intro">
+      <p class="eyebrow">Dirección de arte</p>
+      <h3 id="h-moda">Moda,<br>producto<br>+ concepto</h3>
+      <p>Cuando el proyecto parte desde una idea, <b>styling, maquillaje, luz y montaje trabajan como una sola pieza.</b></p>
+    </div>
+    <div class="grid3">
+      <article class="card">
+        <div class="frame tall"><video src="media/clip-11.mp4" poster="media/serendipas.jpg" autoplay muted loop playsinline preload="none" aria-label="Producción de moda para Serendipas"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Serendipas</strong><a href="https://www.instagram.com/reel/DMMSGj7Oi6e/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame tall"><video src="media/clip-12.mp4" poster="media/food.jpg" autoplay muted loop playsinline preload="none" aria-label="Pieza gastronómica Navidyzz"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Navidyzz</strong><a href="https://www.instagram.com/reel/DR52Al8jY5g/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="frame tall"><video src="media/clip-13.mp4" poster="media/snake.jpg" autoplay muted loop playsinline preload="none" aria-label="Pieza Directed by Dyzz con anillo de serpiente"></video><span class="tag">Video</span></div>
+        <div class="cap"><strong>Directed by Dyzz</strong><a href="https://www.instagram.com/reel/DA6Cm_OucsB/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="foto" aria-labelledby="h-foto">
+  <div class="bg"><img src="media/fairy.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <span class="num">/03</span>
+    <h2 id="h-foto">Foto</h2>
+    <p class="sub">Retrato, editorial y noche.<br><b>La atmósfera del video, detenida en una imagen.</b></p>
+  </div>
+</section>
+
+<section class="block foto" aria-labelledby="h-ret">
+  <div class="wrap">
+    <article class="card lead">
+      <div class="frame"><img src="media/fairy.jpg" alt="Premium Fairy, retrato en blanco y negro en el bosque" loading="lazy"><span class="tag">Foto</span></div>
+      <div class="cap"><strong>Premium Fairy</strong><a href="https://www.instagram.com/p/DJIVh69OVxn/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+    </article>
+    <div class="side">
+      <h3 id="h-ret">Retrato, editorial<br>+ noche</h3>
+      <div class="pair">
+        <article class="card">
+          <div class="frame"><img src="media/studio2.jpg" alt="Retrato con luz roja y collar de perlas" loading="lazy"><span class="tag">Foto</span></div>
+          <div class="cap"><strong>Estudio 88 Hats</strong><a href="https://www.instagram.com/p/C_O9OAiu0jj/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+        </article>
+        <article class="card">
+          <div class="frame"><img src="media/fiestas2.jpg" alt="Dos personas posando en una fiesta con luz roja" loading="lazy"><span class="tag">Foto</span></div>
+          <div class="cap"><strong>Fiestas</strong><a href="https://www.instagram.com/p/C8H--WcuQ0N/" target="_blank" rel="noopener">Ver en Instagram ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block wall" aria-labelledby="h-wall">
+  <div class="wrap">
+    <p class="eyebrow" id="h-wall">Artistas, escenarios + marcas</p>
+    <p class="names">50mm&nbsp;Producciones&nbsp;<span>/</span> Red&nbsp;Bull&nbsp;Chile&nbsp;<span>/</span> Movistar&nbsp;Arena&nbsp;<span>/</span> Outworld&nbsp;<span>/</span> Lenny&nbsp;Tavárez&nbsp;<span>/</span> Justin&nbsp;Quiles&nbsp;<span>/</span> Ivy&nbsp;Queen&nbsp;<span>/</span> Rauw&nbsp;Alejandro&nbsp;<span>/</span> Chencho&nbsp;Corleone&nbsp;<span>/</span> L-Gante&nbsp;<span>/</span> Mochakk&nbsp;<span>/</span> Klangkuenstler&nbsp;<span>/</span> Serendipas&nbsp;<span>/</span> The&nbsp;Premium&nbsp;Room&nbsp;<span>/</span> Misa&nbsp;<span>/</span> Club&nbsp;Room&nbsp;<span>/</span> Simple&nbsp;Mezcla</p>
+  </div>
+</section>
+
+<section class="block services" id="servicios" aria-labelledby="h-serv">
+  <div class="wrap">
+    <h2 id="h-serv">Servicios</h2>
+    <ol>
+      <li><span class="n">01</span><h4>Cámara + CCTV en vivo</h4><p>Shows, conciertos y eventos donde todo pasa una vez.</p></li>
+      <li><span class="n">02</span><h4>Videoclips + dirección</h4><p>De la idea al rodaje y del rodaje al corte final.</p></li>
+      <li><span class="n">03</span><h4>Aftermovies + eventos</h4><p>Contenido que captura cómo se vivió, no solo cómo se vio.</p></li>
+      <li><span class="n">04</span><h4>Contenido para marcas</h4><p>Campañas, producto y piezas pensadas para digital.</p></li>
+      <li><span class="n">05</span><h4>Fotografía</h4><p>Retrato, editorial, estudio y cobertura nocturna.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block quote" aria-labelledby="h-quote">
+  <div class="wrap">
+    <div class="block-head">
+      <h3 id="h-quote">Cotización</h3>
+      <p><b style="color:var(--bone);font-weight:500">Cada proyecto es distinto.</b><br>Los valores se ajustan según alcance, fecha y producción.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Servicio</th><th scope="col">Incluye</th><th scope="col"><span class="sr">Cotizar</span></th></tr></thead>
+        <tbody>
+          <tr><td>Cobertura de evento</td><td>Cámara + aftermovie + piezas verticales</td><td><a href="https://wa.me/56950193962?text=Hola%20Dyzz%2C%20quiero%20cotizar%20una%20cobertura%20de%20evento" target="_blank" rel="noopener">Cotizar ↗</a></td></tr>
+          <tr><td>Videoclip</td><td>Concepto + rodaje + dirección de foto + edición</td><td><a href="https://wa.me/56950193962?text=Hola%20Dyzz%2C%20quiero%20cotizar%20un%20videoclip" target="_blank" rel="noopener">Cotizar ↗</a></td></tr>
+          <tr><td>Contenido de marca</td><td>Jornada de rodaje + piezas finales</td><td><a href="https://wa.me/56950193962?text=Hola%20Dyzz%2C%20quiero%20cotizar%20contenido%20de%20marca" target="_blank" rel="noopener">Cotizar ↗</a></td></tr>
+          <tr><td>Sesión de fotos</td><td>Fotos editadas · estudio o locación</td><td><a href="https://wa.me/56950193962?text=Hola%20Dyzz%2C%20quiero%20cotizar%20una%20sesi%C3%B3n%20de%20fotos" target="_blank" rel="noopener">Cotizar ↗</a></td></tr>
+          <tr><td>Cámara / CCTV</td><td>Operación en vivo para show o evento</td><td><a href="https://wa.me/56950193962?text=Hola%20Dyzz%2C%20quiero%20cotizar%20c%C3%A1mara%20o%20CCTV" target="_blank" rel="noopener">Cotizar ↗</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot mono">Traslados, equipo adicional y derechos de uso se cotizan por separado.</p>
+  </div>
+</section>
+
+<section class="contact" id="contacto" aria-labelledby="h-contact">
+  <div class="wrap">
+    <img class="logo" src="media/logo.png" alt="By Dyzz" loading="lazy">
+    <h2 id="h-contact">Tienes la idea.<br><span>Hagamos que se vea.</span></h2>
+    <div class="rows">
+      <p><span class="k">IG</span><a href="https://www.instagram.com/_filmdyzz/" target="_blank" rel="noopener">@_filmdyzz</a></p>
+      <p><span class="k">WSP</span><a href="https://wa.me/56950193962" target="_blank" rel="noopener" id="phone">+56 9 5019 3962</a><button class="copy-btn" type="button" id="copy-phone">Copiar</button></p>
+    </div>
+    <div><a class="btn" href="https://wa.me/56950193962?text=Hola%20Dyzz%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">Escribir por WhatsApp ↗</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap mono"><span>By Dyzz</span><span>Santiago, Chile — 2026</span></div>
+</footer>
+
+<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = Array.prototype.slice.call(document.querySelectorAll('video'));
+  if (reduce) { vids.forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); v.setAttribute('controls',''); }); }
+  else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var v = e.target;
+        if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+        else { v.pause(); }
+      });
+    }, { rootMargin: '200px 0px' });
+    vids.forEach(function(v){ v.removeAttribute('autoplay'); io.observe(v); });
+  }
+  var btn = document.getElementById('copy-phone');
+  btn.addEventListener('click', function(){
+    var t = '+56950193962';
+    var done = function(){ btn.textContent = 'Copiado'; setTimeout(function(){ btn.textContent = 'Copiar'; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(done, function(){ selectPhone(); });
+    } else { selectPhone(); }
+  });
+  function selectPhone(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('phone')); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+})();
+</script>
+
+</body>
+</html>
